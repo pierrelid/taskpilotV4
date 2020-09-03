@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # maquarade (log as)
+  before_action :masquerade_user!
+
   # pundit (authorizations)
   include Pundit
 

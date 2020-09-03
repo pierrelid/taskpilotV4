@@ -94,6 +94,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_masquerade (1.2.0)
+      devise (>= 4.7.0)
+      railties (>= 5.2.0)
     erubi (1.9.0)
     ffi (1.13.1)
     formtastic (3.1.5)
@@ -265,6 +268,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  devise_masquerade
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
