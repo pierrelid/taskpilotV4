@@ -1,6 +1,18 @@
 require "test_helper"
 
 class QuoteTest < ActiveSupport::TestCase
+  test "invalid if team is not present" do
+    quote = Quote.new
+    quote.valid?
+    assert_not quote.errors[:team].empty?
+  end
+
+  test "valid if team is present" do
+    quote = Quote.new(team: teams(:one))
+    quote.valid?
+    assert_empty quote.errors[:team]
+  end
+
   test "invalid if email is not a good format" do
     emails = [
       "email",
