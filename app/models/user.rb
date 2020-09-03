@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include NameConcern
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :masqueradable
 
   belongs_to :team
@@ -8,16 +10,4 @@ class User < ApplicationRecord
 
   before_save :set_first_name
   before_save :set_last_name
-
-  def set_first_name
-    self.first_name = self.first_name.capitalize
-  end
-
-  def set_last_name
-    self.last_name = self.last_name.capitalize
-  end
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
 end

@@ -1,6 +1,10 @@
 require "test_helper"
 
 class QuoteTest < ActiveSupport::TestCase
+  test "full_name must return full_name of quote" do
+    quote = Quote.new(first_name: "john", last_name: "lennon")
+    assert_equal "John Lennon", quote.full_name
+  end
   test "invalid if team is not present" do
     quote = Quote.new
     quote.valid?
