@@ -8,6 +8,6 @@ if Rails.env.development?
   p "Team admin create : #{admin_team.name}"
 
   # Users creation
-  admin = User.create(team: admin_team, email: "admin@admin.com", password: "123456", admin: true)
+  admin = User.create(team: admin_team, first_name: "pierre", last_name: "liduena", email: "pierre.liduena@gmail.com", password: "123456", admin: true)
   p "Admin create : #{admin.email}"
 end
