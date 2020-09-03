@@ -19,15 +19,24 @@ if Rails.env.development?
 
   # Team 1's users
   1.upto(2) do |i|
-    User.create(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
+    User.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
   end
   p " Team 1's users creation"
   # Team 2's users
   1.upto(2) do |i|
-    User.create(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
+    User.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
   end
   p " Team 2's users creation"
 
   # Quotes creation
-
+  1.upto(5) do |i|
+    Quote.create!(team: admin_team, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email)
+  end
+  1.upto(10) do |i|
+    Quote.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email)
+  end
+  1.upto(15) do |i|
+    Quote.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email)
+  end
+  p "Quote creation"
 end
