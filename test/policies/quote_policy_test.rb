@@ -1,18 +1,13 @@
-require 'test_helper'
+require "test_helper"
 
 class QuotePolicyTest < ActiveSupport::TestCase
-  def test_scope
+  setup do
+    @user_one = users(:one)
+    @user_two = users(:two)
   end
 
-  def test_show
-  end
-
-  def test_create
-  end
-
-  def test_update
-  end
-
-  def test_destroy
+  test "quote policy scope users" do
+    assert_equal 5, Pundit.policy_scope!(@user_one, Quote).count
+    assert_equal 15, Pundit.policy_scope!(@user_two, Quote).count
   end
 end
