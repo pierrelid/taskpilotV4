@@ -31,7 +31,7 @@ gem 'devise'
 gem 'devise_masquerade'
 gem 'activeadmin'
 gem "pundit"
-
+gem "faker"
 
 
 group :development, :test do
