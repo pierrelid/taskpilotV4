@@ -1,8 +1,12 @@
 if  Rails.env.development?
-    # Destroy all database's instances  
-    User.destroy_all 
+    # Destroy all database's instances 
+    User.destroy_all
+    Team.destroy_all 
 
-    # Instances creation
-    admin = User.create(email: "admin@admin.com", password: "123456", admin: true)
+    # Teams creation 
+    admin_team = Team.create(name: "Admin Team")
+
+    # Users creation
+    admin = User.create(team: admin_team, email: "admin@admin.com", password: "123456", admin: true)
     p "Admin create : #{admin.email}"
 end 
