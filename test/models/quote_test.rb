@@ -44,6 +44,18 @@ class QuoteTest < ActiveSupport::TestCase
     assert_empty quote.errors[:email]
   end
 
+  test "invalid if email already exists for same team" do
+    quote = Quote.new(email: teams(:one).quotes.last.email, team: teams(:one))
+    quote.valid?
+    assert_not quote.errors[:email].empty?
+  end
+
+  test "valid if email is present and already exists but for anothe compagnie" do
+    quote = Quote.new(email: teams(:one).quotes.last.email, team: teams(:two))
+    quote.valid?
+    assert_empty quote.errors[:email]
+  end
+
   test "invalid if first_name is not present" do
     quote = Quote.new
     quote.valid?

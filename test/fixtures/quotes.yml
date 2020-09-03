@@ -1,6 +1,14 @@
 <% 1.upto(5) do |i| %>
-quote_<%= i %>:
+quote_1_<%= i %>:
   team: one
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  email: <%= Faker::Internet.unique.email %>
+<% end %>
+
+<% 1.upto(15) do |i| %>
+quote_2_<%= i %>:
+  team: two
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>

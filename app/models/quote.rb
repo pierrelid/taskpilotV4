@@ -7,7 +7,7 @@ class Quote < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, uniqueness: true, format: { with: email_regex }
+  validates :email, uniqueness: { scope: :team, message: "email already exists for this team" }, format: { with: email_regex }
 
   before_save :set_first_name
   before_save :set_last_name
