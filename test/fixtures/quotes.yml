@@ -4,6 +4,7 @@ quote_1_<%= i %>:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
+  product: one_mrh
 <% end %>
 
 <% 1.upto(15) do |i| %>
@@ -12,6 +13,7 @@ quote_2_<%= i %>:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
+  product: two_mrh
 <% end %>
 
 
