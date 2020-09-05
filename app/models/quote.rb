@@ -4,6 +4,7 @@ class Quote < ApplicationRecord
   email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   belongs_to :team
+  belongs_to :product
 
   validates :first_name, presence: true
   validates :last_name, presence: true

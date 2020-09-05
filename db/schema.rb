@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_175720) do
+ActiveRecord::Schema.define(version: 2020_09_05_205501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2020_09_03_175720) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "team_id", null: false
+    t.index ["team_id"], name: "index_products_on_team_id"
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -36,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_175720) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "team_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_quotes_on_product_id"
     t.index ["team_id"], name: "index_quotes_on_team_id"
   end
 
@@ -62,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_175720) do
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "products", "teams"
+  add_foreign_key "quotes", "products"
   add_foreign_key "quotes", "teams"
   add_foreign_key "users", "teams"
 end

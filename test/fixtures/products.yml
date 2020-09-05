@@ -1,0 +1,18 @@
+one_mrh:
+  team: one
+  name: MRH
+one_auto:
+  team: one
+  name: SANTE
+one_sante:
+  team: one
+  name: AUTO
+two_mrh:
+  team: two
+  name: MRH
+two_auto:
+  team: two
+  name: SANTE
+two_sante:
+  team: two
+  name: AUTO

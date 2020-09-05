@@ -7,7 +7,7 @@ class QuotePolicyTest < ActiveSupport::TestCase
   end
 
   test "quote policy scope users" do
-    assert_equal 5, Pundit.policy_scope!(@user_one, Quote).count
-    assert_equal 15, Pundit.policy_scope!(@user_two, Quote).count
+    assert_equal 100, Pundit.policy_scope!(@user_one, Quote).count
+    assert_equal 100, Pundit.policy_scope!(@user_two, Quote).count
   end
 end
