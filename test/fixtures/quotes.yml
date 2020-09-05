@@ -1,19 +1,19 @@
-<% 1.upto(5) do |i| %>
+<% 1.upto(100) do |i| %>
 quote_1_<%= i %>:
   team: one
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
-  product: one_mrh
+  product: <%= ['one_mrh', 'one_auto', 'one_sante'].sample %>
 <% end %>
 
-<% 1.upto(15) do |i| %>
+<% 1.upto(100) do |i| %>
 quote_2_<%= i %>:
   team: two
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
-  product: two_mrh
+  product: <%= ['two_mrh', 'two_auto', 'two_sante'].sample %>
 <% end %>
 
 
