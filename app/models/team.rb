@@ -18,6 +18,9 @@ class Team < ApplicationRecord
     default_product_names.each { |name| Product.create(team: self, name: name) }
   end
 
+  def create_lists
+  end
+
   def default_product_names
     ["MRH", "AUTO", "SANTE"]
   end
