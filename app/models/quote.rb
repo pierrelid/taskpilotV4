@@ -7,6 +7,8 @@ class Quote < ApplicationRecord
   belongs_to :product
   belongs_to :qualification
 
+  has_many :list_lines, dependent: :destroy
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, uniqueness: { scope: :team, message: "email already exists for this team" }, format: { with: email_regex }
