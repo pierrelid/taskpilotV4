@@ -1,6 +1,9 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
+  test "default_names must return default names" do
+    assert_equal ["MRH", "AUTO", "SANTE"], Product.default_names
+  end
   test "valid if name is present" do
     product = Product.new(name: "name")
     product.valid?

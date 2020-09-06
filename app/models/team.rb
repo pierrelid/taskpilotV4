@@ -9,23 +9,23 @@ class Team < ApplicationRecord
 
   after_create :create_products
   after_create :create_qualifications
+  after_create :create_lists
 
   def create_qualifications
-    default_qualification_names.each { |name| Qualification.create(team: self, name: name) }
-  end
-
-  def create_products
-    default_product_names.each { |name| Product.create(team: self, name: name) }
+    Qualification.default_names.each { |name| Qualification.create(team: self, name: name, default: true) }
   end
 
   def create_lists
+    Qualification.default_names_for_lists.each do |qualification_name|
+      Product.default_names.each do |product_name|
+        qualification = Qualification.find_by(name: qualification_name, team: self)
+        product = Product.find_by(name: product_name, team: self)
+        List.create(name: "#{product_name} : #{qualification_name}", product: product, qualification: qualification, team: self)
+      end
+    end
   end
 
-  def default_product_names
-    ["MRH", "AUTO", "SANTE"]
-  end
-
-  def default_qualification_names
-    ["Jamais démarché", "Lead chaud", "Rendez-vous pris", "Sans suite"]
+  def create_products
+    Product.default_names.each { |name| Product.create(team: self, name: name, default: true) }
   end
 end
