@@ -5,6 +5,7 @@ quote_1_<%= i %>:
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
   product: <%= ['one_mrh', 'one_auto', 'one_sante'].sample %>
+  qualification: <%= ['qualification_1_1', 'qualification_1_2', 'qualification_1_3', 'qualification_1_4'].sample %>
 <% end %>
 
 <% 1.upto(100) do |i| %>
@@ -14,6 +15,7 @@ quote_2_<%= i %>:
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.unique.email %>
   product: <%= ['two_mrh', 'two_auto', 'two_sante'].sample %>
+  qualification: <%= ['qualification_2_1', 'qualification_2_2', 'qualification_2_3', 'qualification_2_4'].sample %>
 <% end %>
 
 
