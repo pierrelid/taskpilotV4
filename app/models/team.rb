@@ -12,7 +12,7 @@ class Team < ApplicationRecord
   after_create :create_lists
 
   def create_qualifications
-    Qualification.default_names.each { |name| Qualification.create(team: self, name: name) }
+    Qualification.default_names.each { |name| Qualification.create(team: self, name: name, default: true) }
   end
 
   def create_lists
@@ -26,6 +26,6 @@ class Team < ApplicationRecord
   end
 
   def create_products
-    Product.default_names.each { |name| Product.create(team: self, name: name) }
+    Product.default_names.each { |name| Product.create(team: self, name: name, default: true) }
   end
 end
