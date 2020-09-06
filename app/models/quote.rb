@@ -5,6 +5,7 @@ class Quote < ApplicationRecord
 
   belongs_to :team
   belongs_to :product
+  belongs_to :qualification
 
   validates :first_name, presence: true
   validates :last_name, presence: true

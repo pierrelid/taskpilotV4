@@ -2,6 +2,7 @@ class Team < ApplicationRecord
   has_many :users
   has_many :quotes
   has_many :products
+  has_many :qualification
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
