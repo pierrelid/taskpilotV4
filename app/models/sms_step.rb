@@ -1,0 +1,2 @@
+class SmsStep < Step
+end

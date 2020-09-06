@@ -1,0 +1,2 @@
+class EmailStep < Step
+end
