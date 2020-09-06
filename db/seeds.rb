@@ -2,7 +2,6 @@ if Rails.env.development?
   require "faker"
 
   # Destroy all database's instances
-  User.destroy_all
   Team.destroy_all
 
   # Teams creation
