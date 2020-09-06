@@ -4,4 +4,8 @@ class Product < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   validates :name, presence: true
+
+  def self.default_names
+    ["MRH", "AUTO", "SANTE"]
+  end
 end
