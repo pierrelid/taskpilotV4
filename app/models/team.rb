@@ -3,6 +3,7 @@ class Team < ApplicationRecord
   has_many :quotes, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :qualifications, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 

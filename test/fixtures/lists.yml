@@ -1,11 +1,30 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+list_1_1:
+  team: one
+  name: "MRH jamais démarchés"
+  product: one_mrh
+  qualification: qualification_1_1
+list_1_2:
+  team: one
+  name: "Auto jamais démarchés"
+  product: one_auto
+  qualification: qualification_1_1
+list_1_2:
+  team: one
+  name: "Santé jamais démarchés"
+  product: one_sante
+  qualification: qualification_1_1
+list_2_1:
+  team: two
+  name: "MRH jamais démarchés"
+  product: two_mrh
+  qualification: qualification_2_1
+list_2_2:
+  team: two
+  name: "Auto jamais démarchés"
+  product: two_auto
+  qualification: qualification_2_1
+list_2_2:
+  team: two
+  name: "Santé jamais démarchés"
+  product: two_sante
+  qualification: qualification_2_1
