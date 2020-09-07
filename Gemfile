@@ -34,6 +34,7 @@ gem "pundit"
 gem "faker"
 
 gem 'acts_as_list'
+gem 'font-awesome-sass', '~> 5.13.0'
 
 
 group :development, :test do
