@@ -1,18 +1,26 @@
-<table id="table" class="display">
+<div class="container mt-5">
+  <table id="table" class="display table-minimal table-offers" style="width:100%">
     <thead>
-        <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-        </tr>
+      <tr>
+        <th>Type</th>
+        <th>Nom</th>
+        <th>Nombre contacts</th>
+        <th>Date de création</th>
+        <th class="text-right">Actions</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
-        </tr>
-        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-        </tr>
+      <% @quotes.each do |quote| %>
+      <tr data-list-id='<%= quote.id %>'>
+        <td><strong><%= quote.full_name %></strong></td>
+        <td><strong><%= quote.email %></strong></td>
+        <td><strong>PHONE</strong></td>
+        <td class='text-muted'><%= l(quote.created_at, format: :short) %></td>
+        <td  class="text-right text-action">
+          <%= link_to "Voir le lead", quote_path(quote)  %>
+        </td>
+      </tr>
+      <% end %>
     </tbody>
-</table>
+  </table>
+</div>
