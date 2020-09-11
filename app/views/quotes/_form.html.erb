@@ -1,0 +1,23 @@
+<div class="bg-secondary">
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="card w-100">
+            <div class="p-3">
+            <%= simple_form_for @quote do |f| %>
+                <div class="row">
+                    <div class="col-sm-6"><%= f.input :first_name, label: "Prénom" %></div>
+                    <div class="col-sm-6"><%= f.input :last_name, label: "Nom" %></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><%= f.input :email, label: 'Email', required: true   %></div>
+                    <div class="col-sm-6"><%= f.input :phone, label: 'Téléphone' %></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><%= f.association :product, as: :select, collection: policy_scope(Product), label_method: :name, value_method: :id %></div>
+                    <div class="col-sm-6"><%= f.association :qualification, as: :select, collection: policy_scope(Qualification), label_method: :name, value_method: :id  %></div>
+                </div>
+                <%= f.button :submit, "Créer le lead", class: "btn btn-primary" %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>

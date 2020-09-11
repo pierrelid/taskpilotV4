@@ -10,8 +10,9 @@ $body-bg:                white;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: black;
+$body-color: $black;
 $primary:    $red;
+$secondary:  $light-gray;
 $success:    $green;
 $info:       $blue;
 $danger:     $dark-red;

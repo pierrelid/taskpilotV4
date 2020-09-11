@@ -32,6 +32,8 @@ gem 'devise_masquerade'
 gem 'activeadmin'
 gem "pundit"
 gem "faker"
+gem 'simple_form'
+
 
 gem 'acts_as_list'
 gem 'font-awesome-sass', '~> 5.13.0'
