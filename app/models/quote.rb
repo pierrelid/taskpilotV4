@@ -2,7 +2,7 @@ class Quote < ApplicationRecord
   include NameConcern
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  phone_regex = /\A(?:(?:\+|00)33|0)\s*[6-7](?:[\s.-]*\d{2}){4}\z/
+  phone_regex = /\A(?:(?:\+|00)33)\s*[6-7](?:[\s.-]*\d{2}){4}\z/
 
   belongs_to :team
   belongs_to :product
@@ -17,4 +17,7 @@ class Quote < ApplicationRecord
 
   before_save :set_first_name
   before_save :set_last_name
+
+  def set_phone_number
+  end
 end

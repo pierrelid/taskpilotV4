@@ -1,6 +1,23 @@
 require "test_helper"
 
 class QuoteTest < ActiveSupport::TestCase
+  test "valid if phone is on the good format" do
+    sample = ["+33600000000", "+33700000000"]
+    sample.each do |phone|
+      quote = Quote.new(phone: phone)
+      quote.valid?
+      assert_empty quote.errors[:phone], "must be valid : #{phone}"
+    end
+  end
+  test "invalid if the phone's format is not good" do
+    sample = ["+3360", "+336000000000", "06 00 00 00 00", "0600 0 0 00 00", "+33100000000"]
+    sample.each do |phone|
+      quote = Quote.new(phone: phone)
+      quote.valid?
+      assert_not quote.errors[:phone].empty?, "must be invalid : #{phone}"
+    end
+  end
+
   test "invalid if phone is not present" do
     quote = Quote.new
     quote.valid?
