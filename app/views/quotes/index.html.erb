@@ -15,19 +15,21 @@
         <th>Type</th>
         <th>Nom</th>
         <th>Nombre contacts</th>
-        <th>Date de création</th>
+        <th>Produit</th>
+        <th>Qualification</th>
         <th class="text-right">Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @quotes.each do |quote| %>
       <tr data-list-id='<%= quote.id %>'>
-        <td><strong><%= quote.full_name %></strong></td>
-        <td><strong><%= quote.email %></strong></td>
-        <td><strong><%= quote.phone %></strong></td>
-        <td class='text-muted'><%= l(quote.created_at, format: :short) %></td>
+        <td><strong><%= link_to quote.full_name, quote_path(quote) %></strong></td>
+        <td><%= quote.email %></td>
+        <td><%= quote.phone %></td>
+        <td><%= quote.product.name %></td>
+        <td><%= quote.qualification.name %></td>
         <td  class="text-right text-action">
-          <%= link_to "Voir le lead", quote_path(quote)  %>
+          <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, quote_path(quote), class: "mr-2"  %>
         </td>
       </tr>
       <% end %>
