@@ -14,7 +14,7 @@
       <tr data-list-id='<%= quote.id %>'>
         <td><strong><%= quote.full_name %></strong></td>
         <td><strong><%= quote.email %></strong></td>
-        <td><strong>PHONE</strong></td>
+        <td><strong><%= quote.phone %></strong></td>
         <td class='text-muted'><%= l(quote.created_at, format: :short) %></td>
         <td  class="text-right text-action">
           <%= link_to "Voir le lead", quote_path(quote)  %>
