@@ -1,5 +1,6 @@
 if Rails.env.development?
   require "faker"
+  Faker::Config.locale = "fr"
 
   # Destroy all database's instances
   Team.destroy_all
@@ -39,13 +40,13 @@ if Rails.env.development?
 
   # Quotes creation
   1.upto(50) do |i|
-    Quote.create!(team: admin_team, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
+    Quote.create!(team: admin_team, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
   end
   1.upto(50) do |i|
-    Quote.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, product: team_1_products.sample, qualification: team_1_qualifications.sample)
+    Quote.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: team_1_products.sample, qualification: team_1_qualifications.sample)
   end
   1.upto(50) do |i|
-    Quote.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, product: team_2_products.sample, qualification: team_1_qualifications.sample)
+    Quote.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: team_2_products.sample, qualification: team_1_qualifications.sample)
   end
   p "Quote creation"
 end
