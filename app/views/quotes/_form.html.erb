@@ -12,8 +12,8 @@
                     <div class="col-sm-6"><%= f.input :phone, label: 'Téléphone' %></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"><%= f.input :product_id, as: :select, collection: policy_scope(Product).map{|p| [p.name, p.id]}, value_method: :second, label_method: :first %></div>
-                    <div class="col-sm-6"><%= f.input :qualification_id, as: :select, collection: policy_scope(Qualification).map{|p| [p.name, p.id]}, value_method: :second, label_method: :first %></div>
+                    <div class="col-sm-6"><%= f.association :product, as: :select, collection: policy_scope(Product), label_method: :name, value_method: :id %></div>
+                    <div class="col-sm-6"><%= f.association :qualification, as: :select, collection: policy_scope(Qualification), label_method: :name, value_method: :id  %></div>
                 </div>
                 <%= f.button :submit, "Créer le lead", class: "btn btn-primary" %>
             <% end %>
