@@ -1,6 +1,18 @@
 require "test_helper"
 
 class QuoteTest < ActiveSupport::TestCase
+  test "invalid if phone is not present" do
+    quote = Quote.new
+    quote.valid?
+    assert_not quote.errors[:phone].empty?
+  end
+
+  test "valid if phone is present" do
+    quote = Quote.new(phone: "+33600000000")
+    quote.valid?
+    assert_empty quote.errors[:phone]
+  end
+
   test "full_name must return full_name of quote" do
     quote = Quote.new(first_name: "john", last_name: "lennon")
     assert_equal "John Lennon", quote.full_name
