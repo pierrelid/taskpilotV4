@@ -19,6 +19,21 @@ class QuotesController < ApplicationController
     authorize @quote
   end
 
+  def edit
+    @quote = Quote.find(params[:id])
+    authorize @quote
+  end
+
+  def update
+    @quote = Quote.find(params[:id])
+    authorize @quote
+    if @quote.update(quote_params)
+      redirect_to quote_path(@quote)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def quote_params

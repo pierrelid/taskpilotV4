@@ -12,4 +12,8 @@ class QuotePolicy < ApplicationPolicy
   def show?
     record.team = user.team
   end
+
+  def update?
+    record.team = user.team
+  end
 end
