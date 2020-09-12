@@ -7,9 +7,9 @@ class Api::V1::QuotesController < Api::V1::BaseController
 
   def create
     @team = User.find_by(authentication_token: params["user_token"]).team
-    @product = Product.find_by(team: team, name: contact_params["product"])
-    @qualification = Qualification.find_by(team: team, initial: true)
-    @quote = Quote.new(contact_params.merge(team: @team, product: @product, qualification: @qualification))
+    @product = Product.find_by(team: @team, name: quote_params["product"])
+    @qualification = Qualification.find_by(team: @team, initial: true)
+    @quote = Quote.new(quote_params.merge(team: @team, product: @product, qualification: @qualification))
     authorize @quote
     if @quote.save
       render_new_quote
@@ -29,11 +29,11 @@ class Api::V1::QuotesController < Api::V1::BaseController
     }
   end
 
-  def contact_params
+  def quote_params
     params.require(:quote).permit(:first_name, :last_name, :phone, :email, :product)
   end
 
   def render_error
-    render json: { errors: @contact.errors.full_messages }, status: :unprocessable_entity
+    render json: { errors: @quote.errors.full_messages }, status: :unprocessable_entity
   end
 end
