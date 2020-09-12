@@ -1,0 +1,12 @@
+<div class="bg-secondary">
+    <div class="container min-vh-100-min-nav d-flex justify-content-center align-items-center">
+        <div class="card w-100 p-3">
+        <%= simple_form_for @list do |f| %>
+            <%= f.input :name %>
+            <%= f.association :product, collection: policy_scope(Product), label_method: :name, value_method: :id  %>
+            <%= f.association :qualification, collection: policy_scope(Qualification), label_method: :name, value_method: :id   %>
+            <%= f.button :submit, "Créer la liste", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+    </div>
+</div>
