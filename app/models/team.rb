@@ -13,6 +13,7 @@ class Team < ApplicationRecord
 
   def create_qualifications
     Qualification.default_names.each { |name| Qualification.create(team: self, name: name, default: true) }
+    Qualification.find_by(team: self, name: Qualification.initial_name).update(initial: true)
   end
 
   def create_lists
