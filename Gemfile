@@ -33,6 +33,8 @@ gem 'activeadmin'
 gem "pundit"
 gem "faker"
 gem 'simple_form'
+gem 'simple_token_authentication'
+
 
 
 gem 'acts_as_list'

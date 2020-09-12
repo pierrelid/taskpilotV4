@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # quotes
   resources :quotes
+
+  # api
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :quotes, only: [:index]
+    end
+  end
 end
