@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+
   def index
     @quotes = policy_scope(Quote)
   end
@@ -15,18 +17,12 @@ class QuotesController < ApplicationController
   end
 
   def show
-    @quote = Quote.find(params[:id])
-    authorize @quote
   end
 
   def edit
-    @quote = Quote.find(params[:id])
-    authorize @quote
   end
 
   def update
-    @quote = Quote.find(params[:id])
-    authorize @quote
     if @quote.update(quote_params)
       redirect_to quote_path(@quote)
     else
@@ -35,8 +31,6 @@ class QuotesController < ApplicationController
   end
 
   def destroy
-    @quote = Quote.find(params[:id])
-    authorize @quote
     @quote.destroy
     redirect_to quotes_path
   end
@@ -45,5 +39,10 @@ class QuotesController < ApplicationController
 
   def quote_params
     params.require(:quote).permit(:first_name, :last_name, :email, :phone, :product_id, :qualification_id)
+  end
+
+  def set_quote
+    @quote = Quote.find(params[:id])
+    authorize @quote
   end
 end
