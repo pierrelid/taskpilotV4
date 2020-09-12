@@ -9,6 +9,10 @@ class Qualification < ApplicationRecord
     ["Jamais démarché"]
   end
 
+  def self.initial_name
+    "Jamais démarché"
+  end
+
   def self.default_names
     ["Jamais démarché", "Lead chaud", "Rendez-vous pris", "Sans suite"]
   end
