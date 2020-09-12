@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # quotes
   resources :quotes
+  resources :lists
 
   # api
 
