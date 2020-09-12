@@ -30,7 +30,7 @@
         <td><%= quote.qualification.name %></td>
         <td  class="text-right text-action">
         <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_quote_path(quote), class: "mr-2"  %>
-        <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, quote_path(quote), class: "mr-2"  %>
+        <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, quote_path(quote), method: :delete, class: "mr-2"  %>
         </td>
       </tr>
       <% end %>
