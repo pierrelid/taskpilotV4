@@ -3,6 +3,8 @@ class List < ApplicationRecord
   belongs_to :product
   belongs_to :qualification
 
+  has_many :list_lines, dependent: :destroy
+
   has_one :workflow, dependent: :destroy
 
   validates :name, presence: true

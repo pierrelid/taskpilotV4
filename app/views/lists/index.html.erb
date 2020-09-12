@@ -1,0 +1,37 @@
+<div class="border-bottom">
+  <div class="container d-flex justify-content-between align-items-center py-3">
+    <h5 class="font-weight-bold m-0">Listes : <%= @lists.count %></h5>
+    <%= link_to "+ Ajouter une liste", new_list_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+
+
+
+<div class="container mt-3">
+  <table id="table" class="display table-minimal table-offers" style="width:100%">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Nombre contacts</th>
+        <th>Produit</th>
+        <th>Qualification</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lists.each do |list| %>
+      <tr data-list-id='<%= list.id %>'>
+        <td><strong><%= link_to list.name, list_path(list) %></strong></td>
+        <td><%= list.list_lines.count %></td>
+        <td><%= list.product.name %></td>
+        <td><%= list.qualification.name %></td>
+        <td  class="text-right text-action">
+        <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_list_path(list), class: "mr-2"  %>
+        <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, list_path(list), method: :delete, class: "mr-2"  %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

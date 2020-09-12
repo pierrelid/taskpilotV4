@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class ListPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(team: user.team)
