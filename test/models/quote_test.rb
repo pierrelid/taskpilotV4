@@ -10,7 +10,7 @@ class QuoteTest < ActiveSupport::TestCase
     end
   end
   test "invalid if the phone's format is not good" do
-    sample = ["+3360", "+336000000000", "06 00 00 00 00", "0600 0 0 00 00", "+33100000000"]
+    sample = ["+3360", "+336000000000", "+33100000000"]
     sample.each do |phone|
       quote = Quote.new(phone: phone)
       quote.valid?

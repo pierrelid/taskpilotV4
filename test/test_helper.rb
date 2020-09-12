@@ -4,6 +4,7 @@ require "rails/test_help"
 require "faker"
 
 class ActiveSupport::TestCase
+  Faker::Config.locale = "fr"
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
