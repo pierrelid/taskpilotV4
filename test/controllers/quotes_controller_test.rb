@@ -37,4 +37,12 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @team.qualifications.first, quote.qualification
     assert_equal @team.products.first, quote.product
   end
+
+  test "should destroy quote" do
+    quote = @quotes.last
+    assert_difference("Quote.count", -1) do
+      delete quote_url(quote)
+    end
+    assert_redirected_to quotes_path
+  end
 end
