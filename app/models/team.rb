@@ -4,6 +4,7 @@ class Team < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :qualifications, dependent: :destroy
   has_many :lists, dependent: :destroy
+  has_many :workflows, through: :lists
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 

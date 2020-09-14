@@ -1,0 +1,5 @@
+<% @steps.each do |step| %>
+<div><%= step %></div>
+<% end %>
+
+<%= link_to "Ajouter un step", new_workflow_step_path(@workflow) %>
