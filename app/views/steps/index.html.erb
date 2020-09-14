@@ -1,6 +1,8 @@
-<div data-controller="drag">
-<% @steps.each do |step| %>
-<div class="card"><%= step %> <%= step.position %></div>
+<div data-controller="drag" data-drag-url="/workflows/<%= @workflow.id %>/steps/:id/move">
+<% @steps.order(position: :asc).each do |step| %>
+    <div class="card mt-3" data-id="<%= step.id %>">
+    <%= step %> <%= step.position %>
+    </div>
 <% end %>
 </div>
 
