@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :quotes
   resources :lists
-  resources :workflows
+  resources :workflows do
+    resources :steps
+  end
 
   # api
 
