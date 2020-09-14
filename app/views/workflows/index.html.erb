@@ -1,0 +1,36 @@
+<div class="border-bottom">
+  <div class="container d-flex justify-content-between align-items-center py-3">
+    <h5 class="font-weight-bold m-0">Workflows : <%= @workflows.count %></h5>
+    <%= link_to "+ Ajouter un workflow", new_workflow_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+
+
+<div class="container mt-3">
+  <table id="table" class="display table-minimal table-offers" style="width:100%">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Liste</th>
+        <th>Ajouter des actions</th>
+        <th>Statut</th>
+        <th class="text-right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @workflows.each do |workflow| %>
+      <tr data-list-id='<%= workflow.id %>'>
+        <td><strong><%= link_to workflow.name, workflow_path(workflow) %></strong></td>
+        <td><%= workflow.list.name %></td>
+        <td><%= link_to "Ajouter", workflow_steps_path(workflow) %></td>
+        <td><%= workflow.active? ? "Actif" : "Inactif" %></td>
+        <td  class="text-right text-action">
+        <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_workflow_path(workflow), class: "mr-2"  %>
+        <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, workflow_path(workflow), method: :delete, class: "mr-2"  %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

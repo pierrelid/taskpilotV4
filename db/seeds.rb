@@ -49,4 +49,7 @@ if Rails.env.development?
     Quote.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: team_2_products.sample, qualification: team_1_qualifications.sample)
   end
   p "Quote creation"
+
+  Rake::Task["workflow:execution"].execute
+  p "ListLine creation"
 end

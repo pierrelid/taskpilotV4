@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   # roots
   root "quotes#index"
 
-  # quotes
   resources :quotes
   resources :lists
+  resources :workflows do
+    resources :steps
+  end
 
   # api
 
