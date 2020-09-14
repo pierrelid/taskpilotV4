@@ -1,5 +1,9 @@
+<div data-controller="drag">
 <% @steps.each do |step| %>
 <div class="card"><%= step %> <%= step.position %></div>
 <% end %>
+</div>
+
+
 
 <%= link_to "Ajouter un step", new_workflow_step_path(@workflow) %>
