@@ -1,0 +1,2 @@
+class SmsStepPolicy < StepPolicy
+end

@@ -1,0 +1,2 @@
+class EmailStepPolicy < StepPolicy
+end

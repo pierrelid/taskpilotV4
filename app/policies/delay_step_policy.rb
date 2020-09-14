@@ -1,0 +1,2 @@
+class DelayStepPolicy < StepPolicy
+end
