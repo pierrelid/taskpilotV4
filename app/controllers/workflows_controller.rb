@@ -27,6 +27,11 @@ class WorkflowsController < ApplicationController
     end
   end
 
+  def destroy
+    @workflow.destroy
+    redirect_to workflows_path
+  end
+
   private
 
   def workflow_params
