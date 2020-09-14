@@ -8,4 +8,8 @@ class StepPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def move?
+    record.workflow.list.team == user.team
+  end
 end

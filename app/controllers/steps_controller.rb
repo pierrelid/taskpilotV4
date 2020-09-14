@@ -27,10 +27,17 @@ class StepsController < ApplicationController
     end
   end
 
+  def move
+    @step = Step.find(params["id"])
+    authorize @step
+    @step.insert_at(params[:position].to_i + 1)
+    head :ok
+  end
+
   private
 
   def step_params
-    params.require(:step).permit(:type, :title, :body, :delay)
+    params.require(:step).permit(:type, :title, :body, :delay, :postion)
   end
 
   def set_step_model
