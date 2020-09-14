@@ -1,0 +1,11 @@
+<div class="bg-secondary">
+    <div class="container min-vh-100-min-nav d-flex justify-content-center align-items-center">
+        <div class="card w-100 p-3">
+        <%= simple_form_for @workflow do |f| %>
+            <%= f.input :name %>
+            <%= f.association :list, collection: policy_scope(List), label_method: :name, value_method: :id   %>
+            <%= f.button :submit, "Créer le workflow", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+    </div>
+</div>
