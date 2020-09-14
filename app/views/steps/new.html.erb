@@ -1,0 +1,14 @@
+<%= simple_form_for [@workflow, @step] do |f| %>
+    <div data-controller="step"">
+        <%= f.input :type, 
+        as: :select, 
+        collection: [["Email", "EmailStep"], ["Sms", "SmsStep"]], 
+        label_method: :first, 
+        value_method: :second, 
+        input_html: { "data-action" => "change->step#kind", "data-target" => "step.kindOfStep"} 
+        %>
+        <%= f.input :title %>
+        <%= f.input :body %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+<% end %>
