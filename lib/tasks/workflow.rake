@@ -8,7 +8,7 @@ namespace :workflow do
     lists = team.lists
     lists.each do |list|
       quotes = Quote.where(team: team, qualification: list.qualification, product: list.product)
-      quotes.each { |quote| ListLine.create(list: list, quote: quote) }
+      quotes.each { |quote| ListLine.create(list: list, quote: quote) unless ListLine.find_by(list: list, quote: quote).present? }
     end
   end
 end
