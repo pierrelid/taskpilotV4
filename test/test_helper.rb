@@ -1,8 +1,8 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
-require "faker"
 require "webmock/minitest"
+require "faker"
 
 class ActiveSupport::TestCase
   Faker::Config.locale = "fr"
