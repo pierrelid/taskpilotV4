@@ -9,6 +9,14 @@ class StepPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.workflow.list.team == user.team
+  end
+
+  def destroy?
+    record.workflow.list.team == user.team
+  end
+
   def move?
     record.workflow.list.team == user.team
   end

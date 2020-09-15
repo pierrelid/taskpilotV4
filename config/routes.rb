@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :quotes
   resources :lists
+
   resources :workflows do
     resources :steps do
       member do
@@ -14,6 +15,12 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  # Step Inheritence
+
+  resources :sms_step, controller: :steps, :type => "SmsStep"
+  resources :email_step, controller: :steps, :type => "EmailStep"
+  resources :delay_step, controller: :steps, :type => "DelayStep"
 
   # api
 

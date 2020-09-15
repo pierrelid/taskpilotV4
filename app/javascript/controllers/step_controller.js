@@ -2,6 +2,9 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
   static targets = ["kindOfStep", "titleInput", "bodyInput", "delayInput"];
+  connect() {
+    this.kind();
+  }
 
   kind() {
     const kind = this.kindOfStepTarget;

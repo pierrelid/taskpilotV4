@@ -1,8 +1,10 @@
 <div data-controller="drag" data-drag-url="/workflows/<%= @workflow.id %>/steps/:id/move">
 <% @steps.order(position: :asc).each do |step| %>
     <div class="card mt-3" data-id="<%= step.id %>">
-    <%= step %> <%= step.position %>
+    <%= step %> <%= step.position %> <%= link_to "Editer", edit_workflow_step_path(@workflow, step) %>
+    <%= link_to "destroy", workflow_step_path(@workflow, step), method: :delete %>
     </div>
+
 <% end %>
 </div>
 
