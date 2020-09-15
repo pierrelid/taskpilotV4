@@ -43,6 +43,14 @@ class StepsController < ApplicationController
     end
   end
 
+  def destroy
+    @step = Step.find(params[:id])
+    @workflow = @step.workflow
+    authorize @step
+    @step.destroy
+    redirect_to workflow_steps_path(@workflow)
+  end
+
   def move
     @step = Step.find(params["id"])
     authorize @step
