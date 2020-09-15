@@ -12,7 +12,7 @@ class ListLineTest < ActiveSupport::TestCase
   end
 
   test "invalid if list_line alread exists" do
-    list = @team.lists.last
+    list = @team.lists.lasto
     quote = Quote.find_by(team: @team, qualification: list.qualification, product: list.product)
     ListLine.create(list: list, quote: quote)
     list_line = ListLine.new(list: list, quote: quote)

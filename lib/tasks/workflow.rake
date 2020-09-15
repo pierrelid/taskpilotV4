@@ -3,16 +3,35 @@ namespace :workflow do
     teams = Team.all
     # create list lines
     teams.each { |team| create_list_lines(team) }
-    # crawl workflow
+    # crawl actives workflow
     active_workflows = Workflow.where(active: true)
     active_workflows.each do |workflow|
-      list_lines = workflow.list_lines
+      steps = workflow.steps.order(position: :asc)
+      list_lines = workflow.list_lines.where(finish: false)
       list_lines.each do |list_line|
-        # if list_line.step.nil?
-
-        # else
-        #   current_step = list_line.step
-        # end
+        # on update le step du list_line
+        if list_line.step.nil?
+          list_line.update(step: steps.first)
+        else
+          current_step = list_line.step
+          next_step = steps.find_by(position: current_step.position + 1)
+          if next_step.present?
+            list_line.update(step: next_step)
+            # on declence l'action du workflow
+            list_line.reload
+            case list_line.step.type
+            when "EmailStep"
+              p "Email Step"
+            when "SmsStep"
+              p "Sms Step"
+            when "DelayStep"
+              p "Delay Step"
+            else
+            end
+          else
+            list_line.update(step: nil, finish: true)
+          end
+        end
       end
     end
   end
