@@ -7,6 +7,9 @@ class CampaignTest < ActiveSupport::TestCase
     @teams = Team.all
   end
 
+  test "" do
+  end
+
   test "workflow must create list_lines for each quote" do
     Rake::Task["workflow:execution"].execute
     @teams.each do |team|

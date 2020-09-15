@@ -1,0 +1,26 @@
+step_1_1_1: 
+  workflow: workflow_1_1
+  type: "EmailStep"
+  title: "Title of email"
+  body: "Body of email"
+step_1_1_2: 
+  workflow: workflow_1_1
+  type: "DelayStep"
+  delay: 2
+step_1_1_3: 
+  workflow: workflow_1_1
+  type: "SmsStep"
+  body: "Body of sms"
+step_1_2_1: 
+  workflow: workflow_2_1
+  type: "EmailStep"
+  title: "Title of email"
+  body: "Body of email"
+step_1_2_2: 
+  workflow: workflow_2_1
+  type: "DelayStep"
+  delay: 2
+step_1_2_3: 
+  workflow: workflow_2_1
+  type: "SmsStep"
+  body: "Body of sms"
