@@ -15,6 +15,13 @@ fr:
         phone: "Téléphone"
         product: "Produit"
         qualification: "Qualification"
+      list: 
+        name: "Nom"
+        product: "Produit"
+        qualification: "Qualification"
+      workflow: 
+        name: "Nom"
+        list: "Liste"
   helpers:
     submit:
       quote:

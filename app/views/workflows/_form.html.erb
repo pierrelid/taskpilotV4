@@ -4,7 +4,7 @@
         <%= simple_form_for @workflow do |f| %>
             <%= f.input :name %>
             <%= f.association :list, collection: policy_scope(List), label_method: :name, value_method: :id   %>
-            <%= f.button :submit, "Créer le workflow", class: "btn btn-primary" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
         </div>
     </div>
