@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  # Active Admin
   ActiveAdmin.routes(self)
+  # Devise
   devise_for :users
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
 
   # roots
   root "quotes#index"
