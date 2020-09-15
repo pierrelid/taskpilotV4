@@ -52,4 +52,12 @@ if Rails.env.development?
 
   Rake::Task["workflow:execution"].execute
   p "ListLine creation"
+
+  workflow = Workflow.create(name: "workflow", list: admin_team.lists.first, active: true)
+  p "Create workflow"
+
+  Step.create(workflow: workflow, type: "EmailStep", body: "body", title: "title")
+  Step.create(workflow: workflow, type: "DelayStep", delay: 3)
+  Step.create(workflow: workflow, type: "SmsStep", body: "body")
+  p "Create Step"
 end

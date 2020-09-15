@@ -1,6 +1,7 @@
 workflow_1_1:
   list: list_1_1
   name: "MRH jamais démarchés"
+  active: true
 workflow_1_2:
   list: list_1_2
   name: "Auto jamais démarchés"
