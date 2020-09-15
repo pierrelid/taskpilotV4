@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   acts_as_token_authenticatable
 
+  has_many :workflows
+
   include NameConcern
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :masqueradable
