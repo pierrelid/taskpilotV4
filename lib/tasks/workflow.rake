@@ -3,13 +3,15 @@ namespace :workflow do
     teams = Team.all
     # create list lines
     teams.each { |team| create_list_lines(team) }
-    # crawl actives workflow
-    active_workflows = Workflow.where(active: true)
+    teams.each { |team| workflows_execution(team) }
+  end
+
+  def workflows_execution(team)
+    active_workflows = team.workflows.where(active: true)
     active_workflows.each do |workflow|
       steps = workflow.steps.order(position: :asc)
       list_lines = workflow.list_lines.where(finish: false)
       list_lines.each do |list_line|
-        # on update le step du list_line
         if list_line.step.nil?
           list_line.update(step: steps.first)
           step_execution(list_line)
@@ -20,7 +22,6 @@ namespace :workflow do
             list_line.update(step: next_step)
             step_execution(list_line)
           else
-            p "Finish"
             list_line.update(step: nil, finish: true)
           end
         end
