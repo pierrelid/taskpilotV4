@@ -12,27 +12,32 @@ namespace :workflow do
         # on update le step du list_line
         if list_line.step.nil?
           list_line.update(step: steps.first)
+          step_execution(list_line)
         else
           current_step = list_line.step
           next_step = steps.find_by(position: current_step.position + 1)
           if next_step.present?
             list_line.update(step: next_step)
-            # on declence l'action du workflow
             list_line.reload
-            case list_line.step.type
-            when "EmailStep"
-              p "Email Step"
-            when "SmsStep"
-              p "Sms Step"
-            when "DelayStep"
-              p "Delay Step"
-            else
-            end
+            step_execution(list_line)
           else
+            p "finish"
             list_line.update(step: nil, finish: true)
           end
         end
       end
+    end
+  end
+
+  def step_execution(list_line)
+    case list_line.step.type
+    when "EmailStep"
+      p "Email Step"
+    when "SmsStep"
+      p "Sms Step"
+    when "DelayStep"
+      p "Delay Step"
+    else
     end
   end
 
