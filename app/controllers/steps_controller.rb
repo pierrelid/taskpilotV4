@@ -32,6 +32,17 @@ class StepsController < ApplicationController
     authorize @step
   end
 
+  def update
+    @step = Step.find(params[:id])
+    @workflow = @step.workflow
+    authorize @step
+    if @step.update(step_params)
+      redirect_to workflow_steps_path(@workflow)
+    else
+      render :edit
+    end
+  end
+
   def move
     @step = Step.find(params["id"])
     authorize @step
@@ -42,7 +53,15 @@ class StepsController < ApplicationController
   private
 
   def step_params
-    params.require(:step).permit(:type, :title, :body, :delay, :postion)
+    if params["delay_step"].present?
+      params.require(:delay_step).permit(:type, :title, :body, :delay, :postion)
+    elsif params["delay_step"].present?
+      params.require(:email_step).permit(:type, :title, :body, :delay, :postion)
+    elsif params["sms_step"].present?
+      params.require(:sms_step).permit(:type, :title, :body, :delay, :postion)
+    else
+      params.require(:step).permit(:type, :title, :body, :delay, :postion)
+    end
   end
 
   def set_step_model
