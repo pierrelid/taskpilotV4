@@ -18,10 +18,9 @@ namespace :workflow do
           next_step = steps.find_by(position: current_step.position + 1)
           if next_step.present?
             list_line.update(step: next_step)
-            list_line.reload
             step_execution(list_line)
           else
-            p "finish"
+            p "Finish"
             list_line.update(step: nil, finish: true)
           end
         end
