@@ -1,7 +1,20 @@
 namespace :workflow do
   task execution: :environment do
-    @teams = Team.all
-    @teams.each { |team| create_list_lines(team) }
+    teams = Team.all
+    # create list lines
+    teams.each { |team| create_list_lines(team) }
+    # crawl workflow
+    active_workflows = Workflow.where(active: true)
+    active_workflows.each do |workflow|
+      list_lines = workflow.list_lines
+      list_lines.each do |list_line|
+        # if list_line.step.nil?
+
+        # else
+        #   current_step = list_line.step
+        # end
+      end
+    end
   end
 
   def create_list_lines(team)

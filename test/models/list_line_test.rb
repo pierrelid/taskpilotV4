@@ -5,6 +5,12 @@ class ListLineTest < ActiveSupport::TestCase
     @team = teams(:one)
   end
 
+  test "valid if step is not present" do
+    list_line = ListLine.new
+    list_line.valid?
+    assert_empty list_line.errors[:step]
+  end
+
   test "invalid if list_line alread exists" do
     list = @team.lists.last
     quote = Quote.find_by(team: @team, qualification: list.qualification, product: list.product)

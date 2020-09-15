@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_150724) do
+ActiveRecord::Schema.define(version: 2020_09_15_120151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2020_09_14_150724) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "list_id", null: false
     t.bigint "quote_id", null: false
+    t.bigint "step_id"
     t.index ["list_id"], name: "index_list_lines_on_list_id"
     t.index ["quote_id"], name: "index_list_lines_on_quote_id"
+    t.index ["step_id"], name: "index_list_lines_on_step_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -133,6 +135,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_150724) do
 
   add_foreign_key "list_lines", "lists"
   add_foreign_key "list_lines", "quotes"
+  add_foreign_key "list_lines", "steps"
   add_foreign_key "lists", "products"
   add_foreign_key "lists", "qualifications"
   add_foreign_key "lists", "teams"

@@ -1,5 +1,6 @@
 class Step < ApplicationRecord
   belongs_to :workflow
+  has_many :list_lines
 
   acts_as_list scope: :workflow
 
