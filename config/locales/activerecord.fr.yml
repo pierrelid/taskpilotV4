@@ -1,0 +1,12 @@
+fr:
+  activerecord:
+    models:
+      quote: 
+        one: Lead
+        other: Leads
+      product:
+        one: Produit
+        other: Produits
+      qualification: 
+        one: Qualification
+        other: Qualification
