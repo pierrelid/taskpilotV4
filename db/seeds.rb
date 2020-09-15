@@ -42,6 +42,8 @@ if Rails.env.development?
   1.upto(50) do |i|
     Quote.create!(team: admin_team, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
   end
+  Quote.create!(team: admin_team, first_name: "Pierre", last_name: "Liduena", email: "pierre.liduena@gmail.com", phone: "+33685694571", product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
+
   1.upto(50) do |i|
     Quote.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: team_1_products.sample, qualification: team_1_qualifications.sample)
   end
