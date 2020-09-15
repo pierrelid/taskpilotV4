@@ -27,6 +27,11 @@ class StepsController < ApplicationController
     end
   end
 
+  def edit
+    @step = Step.find(params[:id])
+    authorize @step
+  end
+
   def move
     @step = Step.find(params["id"])
     authorize @step
