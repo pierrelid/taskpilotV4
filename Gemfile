@@ -38,6 +38,9 @@ gem 'simple_token_authentication'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 
 
 

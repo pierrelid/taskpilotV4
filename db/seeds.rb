@@ -60,4 +60,13 @@ if Rails.env.development?
   Step.create(workflow: workflow, type: "DelayStep", delay: 3)
   Step.create(workflow: workflow, type: "SmsStep", body: "body")
   p "Create Step"
+
+  # initalize sidekiq
+
+  require "sidekiq/api"
+  Sidekiq.redis { |c| c.del("stat:processed") }
+  Sidekiq.redis { |c| c.del("stat:failed") }
+  Sidekiq::Queue.new("infinity").clear
+  Sidekiq::RetrySet.new.clear
+  Sidekiq::ScheduledSet.new.clear
 end
