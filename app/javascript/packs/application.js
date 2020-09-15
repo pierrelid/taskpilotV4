@@ -3,6 +3,8 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 
+import "bootstrap";
+
 // DataTable
 import "datatables.net-bs4";
 import "datatables.net-responsive-bs4";
