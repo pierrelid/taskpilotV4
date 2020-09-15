@@ -10,6 +10,7 @@ class Quote < ApplicationRecord
   belongs_to :qualification
 
   has_many :list_lines, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
