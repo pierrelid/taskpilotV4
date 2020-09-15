@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_121951) do
+ActiveRecord::Schema.define(version: 2020_09_15_140708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,7 +131,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_121951) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "list_id", null: false
     t.boolean "active", default: false
+    t.bigint "user_id", null: false
     t.index ["list_id"], name: "index_workflows_on_list_id"
+    t.index ["user_id"], name: "index_workflows_on_user_id"
   end
 
   add_foreign_key "list_lines", "lists"
@@ -148,4 +150,5 @@ ActiveRecord::Schema.define(version: 2020_09_15_121951) do
   add_foreign_key "steps", "workflows"
   add_foreign_key "users", "teams"
   add_foreign_key "workflows", "lists"
+  add_foreign_key "workflows", "users"
 end

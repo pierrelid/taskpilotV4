@@ -1,19 +1,25 @@
 workflow_1_1:
+  user: one
   list: list_1_1
   name: "MRH jamais démarchés"
   active: true
 workflow_1_2:
+  user: one
   list: list_1_2
   name: "Auto jamais démarchés"
 workflow_1_2:
+  user: one
   list: list_1_3
   name: "Santé jamais démarchés"
 workflow_2_1:
+  user: two
   list: list_2_1
   name: "MRH jamais démarchés"
 workflow_2_2:
+  user: two
   list: list_2_2
   name: "Auto jamais démarchés"
 workflow_2_2:
+  user: two
   list: list_2_2
   name: "Santé jamais démarchés"
