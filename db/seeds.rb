@@ -63,7 +63,7 @@ if Rails.env.development?
   Step.create(workflow: workflow, type: "SmsStep", body: "body")
   p "Create Step"
 
-  # initalize sidekiq
+  # Initalize Sidekiq
 
   require "sidekiq/api"
   Sidekiq::Queue.all.each(&:clear)
@@ -71,5 +71,5 @@ if Rails.env.development?
   Sidekiq::ScheduledSet.new.clear
   Sidekiq::DeadSet.new.clear
 
-  # p "Sidekiq initialisation"
+  p "Sidekiq initialisation"
 end
