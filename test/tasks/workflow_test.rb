@@ -1,11 +1,8 @@
 require "test_helper"
 
-class CampaignTest < ActiveSupport::TestCase
+class WorkflowTest < ActiveSupport::TestCase
   setup do
     @teams = Team.all
-  end
-
-  test "" do
   end
 
   test "must only execute script on active workflows" do
