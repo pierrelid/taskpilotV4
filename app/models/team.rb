@@ -5,11 +5,12 @@ class Team < ApplicationRecord
   has_many :list_lines, through: :quotes
 
   has_many :products, dependent: :destroy
-  
+
   has_many :qualifications, dependent: :destroy
 
   has_many :lists, dependent: :destroy
   has_many :workflows, through: :lists
+  has_many :active_workflows, -> { where(active: true) }, through: :lists, source: :workflow
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 

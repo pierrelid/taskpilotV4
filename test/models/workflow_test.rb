@@ -2,6 +2,49 @@ require "test_helper"
 
 class WorkflowTest < ActiveSupport::TestCase
 
+  # workflows_execution
+
+  test "must update lis line to finish if the next step doesn't exist" do
+    workflow = workflows(:workflow_1_1)
+    list = lists(:list_1_1)
+    quote = quotes(:quote_1_1)
+    step = steps(:step_1_1_3)
+    list_line = ListLine.create(quote: quote, list: list, step: step)
+    workflow.execution
+    list_line.reload
+    assert_nil list_line.step
+    assert list_line.finish
+    assert_not list_line.waiting
+  end
+
+  test "must update list_line to the next step if list_line.step is present" do
+    workflow = workflows(:workflow_1_1)
+    list = lists(:list_1_1)
+    quote = quotes(:quote_1_1)
+    step = steps(:step_1_1_1)
+    list_line = ListLine.create(quote: quote, list: list, step: step)
+    workflow.execution
+    list_line.reload
+    assert list_line.step.present?
+    assert_equal step.position + 1, list_line.step.position
+  end
+
+  test "must update list_line to the fist step if list_line.step is nil" do
+    workflow = workflows(:workflow_1_1)
+    list = lists(:list_1_1)
+    quote = quotes(:quote_1_1)
+    list_line = ListLine.create(quote: quote, list: list)
+    workflow.execution
+    list_line.reload
+    assert list_line.step.present?
+    assert_equal 1, list_line.step.position
+  end
+
+  test "workflows_execution must return nil if workflowis inactive" do
+    workflow = workflows(:workflow_1_2)
+    assert_not workflow.execution
+  end
+
   #  update_waiting_list_lines
 
   test "not update list_line if delay is not past" do
