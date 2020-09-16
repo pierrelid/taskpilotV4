@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_143051) do
+ActiveRecord::Schema.define(version: 2020_09_16_103035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_143051) do
     t.bigint "quote_id", null: false
     t.bigint "step_id"
     t.boolean "finish", default: false
+    t.boolean "waiting", default: false
+    t.integer "seconds_to_wait", default: 0
     t.index ["list_id"], name: "index_list_lines_on_list_id"
     t.index ["quote_id"], name: "index_list_lines_on_quote_id"
     t.index ["step_id"], name: "index_list_lines_on_step_id"
