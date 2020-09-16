@@ -8,7 +8,3 @@ class SendSmsJob < ApplicationJob
     InfobipService.new({ message_id: sms.id }).send_sms
   end
 end
-
-# quote = Quote.find_by(email: "pierre.liduena@gmail.com")
-# step = Step.find_by(type: "SmsStep")
-# SendSmsJob.perform_now(quote.id, step.id)

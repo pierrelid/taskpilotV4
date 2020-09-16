@@ -66,9 +66,10 @@ if Rails.env.development?
   # initalize sidekiq
 
   require "sidekiq/api"
-  Sidekiq.redis { |c| c.del("stat:processed") }
-  Sidekiq.redis { |c| c.del("stat:failed") }
-  Sidekiq::Queue.new("infinity").clear
+  Sidekiq::Queue.all.each(&:clear)
   Sidekiq::RetrySet.new.clear
   Sidekiq::ScheduledSet.new.clear
+  Sidekiq::DeadSet.new.clear
+
+  # p "Sidekiq initialisation"
 end
