@@ -1,12 +1,11 @@
 require "test_helper"
 
-class CampaignTest < ActiveSupport::TestCase
+class WorkflowTest < ActiveSupport::TestCase
   setup do
     @teams = Team.all
   end
 
   test "must only execute script on active workflows" do
-    #
     Rake::Task["workflow:execution"].execute
     active_workflows = Workflow.where(active: true)
     active_workflows.each do |workflow|
@@ -14,7 +13,6 @@ class CampaignTest < ActiveSupport::TestCase
         assert_equal 1, list_line.step.position
       end
     end
-    #
     Rake::Task["workflow:execution"].execute
     active_workflows.each do |workflow|
       workflow.list_lines.each do |list_line|

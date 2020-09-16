@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://x4nw3.api.infobip.com/sms/2/text/single
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+                "from":"MMA",
+                "to":"0756945886",
+                "text":"Body of sms  STOP au 36173"
+              }
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - x4nw3.api.infobip.com
+      Authorization:
+      - Basic VEFTS1BJTE9UMTpvZGszMDkzKmVlaUU=
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, X-Enrollment-Token, Cache-Control, X-Requested-With
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '194'
+      Date:
+      - Wed, 16 Sep 2020 13:52:05 GMT
+      Server:
+      - SMS API
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload;
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"to":"0756945886","status":{"groupId":1,"groupName":"PENDING","id":26,"name":"PENDING_ACCEPTED","description":"Message
+        sent to next instance"},"messageId":"30026432554703571195"}]}'
+  recorded_at: Wed, 16 Sep 2020 13:52:05 GMT
+recorded_with: VCR 6.0.0
