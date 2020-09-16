@@ -1,16 +1,24 @@
 namespace :workflow do
   task execution: :environment do
     teams = Team.all
-    # create list lines
     teams.each { |team| create_list_lines(team) }
+    teams.each { |team| update_waiting_list_lines(team) }
     teams.each { |team| workflows_execution(team) }
+  end
+
+  def update_waiting_list_lines(team)
+    list_lines = team.list_lines.where(finish: false, waiting: true)
+    list_lines.each do |list_line|
+      update_condition = DateTime.now - list_lines.waiting_start >= list_lines.seconds_to_wait
+      list_line.update(waiting: false, seconds_to_wait: 0, waiting_start: nil) if update_condition
+    end
   end
 
   def workflows_execution(team)
     active_workflows = team.workflows.where(active: true)
     active_workflows.each do |workflow|
       steps = workflow.steps.order(position: :asc)
-      list_lines = workflow.list_lines.where(finish: false)
+      list_lines = workflow.list_lines.where(finish: false, waiting: false)
       list_lines.each do |list_line|
         if list_line.step.nil?
           list_line.update(step: steps.first)
@@ -22,7 +30,7 @@ namespace :workflow do
             list_line.update(step: next_step)
             step_execution(list_line)
           else
-            list_line.update(step: nil, finish: true)
+            list_line.update(step: nil, finish: true, waiting: false)
           end
         end
       end

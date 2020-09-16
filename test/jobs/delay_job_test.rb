@@ -8,6 +8,13 @@ class DelayJobTest < ActiveJob::TestCase
     @list_line = ListLine.create(step: @step, quote: @quote, list: @list)
   end
 
+  test "must set waiting_start to DateTime.now" do
+    freeze_time
+    DelayJob.perform_now(@step.id, @list_line.id)
+    @list_line.reload
+    assert_equal DateTime.now, @list_line.waiting_start
+  end
+
   test "must set time to wait in second" do
     DelayJob.perform_now(@step.id, @list_line.id)
     @list_line.reload
