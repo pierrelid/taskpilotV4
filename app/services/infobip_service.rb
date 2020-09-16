@@ -23,6 +23,6 @@ class InfobipService
         \"to\":\"#{@quote.phone}\",
         \"text\":\"#{@message.body}  STOP au 36173\"
       }"
-    p response = http.request(request)
+    response = http.request(request)
   end
 end

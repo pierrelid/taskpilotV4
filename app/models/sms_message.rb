@@ -1,2 +1,2 @@
-class SmslMessage < Message
+class SmsMessage < Message
 end
