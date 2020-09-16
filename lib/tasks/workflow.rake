@@ -32,11 +32,8 @@ namespace :workflow do
   def step_execution(list_line)
     case list_line.step.type
     when "EmailStep"
-      p "Email Step"
     when "SmsStep"
-      p "Sms Step"
     when "DelayStep"
-      p "Delay Step"
     else
     end
   end

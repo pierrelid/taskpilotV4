@@ -1,0 +1,2 @@
+class EmailMessagePolicy < MessagePolicy
+end
