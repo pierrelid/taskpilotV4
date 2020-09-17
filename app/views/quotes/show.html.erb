@@ -12,8 +12,18 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <% @quote.messages.order(created_at: :asc) do |message| %>
+            <%  @quote.messages.order(created_at: :desc).each do |message| %>
                 <div class="card bg-white p-3 mb-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <% if message.type == "EmailMessage" %>
+                            <i class="fas fa-envelope h4"></i>
+                        <% else %>
+                            <i class="fas fa-sms h4"></i>
+                        <% end %>
+                        <p class="my-2"><%= message.created_at.strftime("le %d/%m/%Y à %T") %></p>
+                    </div>
+                    <p class="my-2"><strong><%= message.title %></strong></p>
+                    <p class="my-2"><%= message.body %></p>
                 </div>
             <% end %>
         </div>
