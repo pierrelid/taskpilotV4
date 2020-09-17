@@ -2,6 +2,7 @@ class StepsController < ApplicationController
   def index
     @steps = policy_scope(Step)
     @workflow = Workflow.find(params[:workflow_id])
+    @workflow.update(active: false)
   end
 
   def new

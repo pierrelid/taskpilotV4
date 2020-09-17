@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :lists
 
   resources :workflows do
+    member do
+      patch :switch_active
+    end
     resources :steps do
       member do
         patch :move

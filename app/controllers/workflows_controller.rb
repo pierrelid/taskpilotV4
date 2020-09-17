@@ -1,5 +1,5 @@
 class WorkflowsController < ApplicationController
-  before_action :set_workflow, only: [:show, :edit, :update, :destroy]
+  before_action :set_workflow, only: [:show, :edit, :update, :destroy, :switch_active]
 
   def index
     @workflows = policy_scope(Workflow)
@@ -25,6 +25,11 @@ class WorkflowsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def switch_active
+    @workflow.update(active: !@workflow.active)
+    redirect_to workflows_path(@workflow)
   end
 
   def destroy

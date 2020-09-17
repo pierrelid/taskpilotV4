@@ -21,10 +21,10 @@
     <tbody>
       <% @workflows.each do |workflow| %>
       <tr data-list-id='<%= workflow.id %>'>
-        <td><strong><%= link_to workflow.name, workflow_path(workflow) %></strong></td>
+        <td><strong><%= workflow.name %></strong></td>
         <td><%= workflow.list.name %></td>
-        <td><%= link_to "Ajouter", workflow_steps_path(workflow) %></td>
-        <td><%= workflow.active? ? "<i class='fas fa-toggle-on'></i> Actif".html_safe : "<i class='fas fa-toggle-off'></i> Inactif".html_safe %></td>
+        <td><strong><%= link_to "<i class='fas fa-mouse-pointer'></i> Modifier le workflow".html_safe, workflow_steps_path(workflow) %></strong></td>
+        <td><%= link_to workflow.active? ? "<i class='fas fa-toggle-on'></i> Actif".html_safe : "<i class='fas fa-toggle-off'></i> Inactif".html_safe, switch_active_workflow_path(workflow), method: :patch %></td>
         <td  class="text-right text-action">
         <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_workflow_path(workflow), class: "mr-2"  %>
         <%= link_to "<i class='fas fa-trash-alt text-muted'></i>".html_safe, workflow_path(workflow), method: :delete, class: "mr-2"  %>

@@ -19,7 +19,7 @@
     <tbody>
       <% @lists.each do |list| %>
       <tr data-list-id='<%= list.id %>'>
-        <td><strong><%= link_to list.name, list_path(list) %></strong></td>
+        <td><strong><%= list.name %></strong></td>
         <td><%= list.list_lines.count %></td>
         <td><%= list.product.name %></td>
         <td><%= list.qualification.name %></td>

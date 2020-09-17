@@ -20,4 +20,8 @@ class WorkflowPolicy < ApplicationPolicy
   def destroy?
     record.list.team = user.team
   end
+
+  def switch_active?
+    record.list.team = user.team
+  end
 end
