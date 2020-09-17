@@ -1,0 +1,18 @@
+<div class="bg-secondary">
+<div class="container pt-4 min-vh-100-min-nav">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card bg-white p-3">
+                <h5><strong><%= @quote.full_name %></strong></h5>
+                <p class="my-2"><%= @quote.email %></p>
+                <p class="my-2"><%= @quote.phone %></p>
+                <p class="my-2"><%= @quote.product.name %></p>
+                <p class="my-2"><%= @quote.qualification.name %></p>
+                <div><%= link_to "Modifier le lead", edit_quote_path(@quote), class: "btn btn-outline-primary mt-2" %></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+</div>
+</div>
