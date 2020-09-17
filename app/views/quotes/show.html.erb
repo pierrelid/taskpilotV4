@@ -12,7 +12,12 @@
             </div>
         </div>
         <div class="col-sm-6">
+            <% @quote.messages.order(created_at: :asc) do |message| %>
+                <div class="card bg-white p-3 mb-2">
+                </div>
+            <% end %>
         </div>
     </div>
 </div>
 </div>
+

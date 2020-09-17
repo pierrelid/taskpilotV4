@@ -42,6 +42,7 @@ if Rails.env.development?
   1.upto(50) do |i|
     Quote.create!(team: admin_team, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, phone: Faker::PhoneNumber.cell_phone, product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
   end
+  #
   Quote.create!(team: admin_team, first_name: "Pierre", last_name: "Liduena", email: "pierre.liduena@gmail.com", phone: "+33685694571", product: admin_team_products.sample, qualification: admin_team_qualifications.sample)
 
   1.upto(50) do |i|
@@ -52,8 +53,8 @@ if Rails.env.development?
   end
   p "Quote creation"
 
-  Rake::Task["workflow:execution"].execute
-  p "ListLine creation"
+  # Rake::Task["workflow:execution"].execute
+  # p "ListLine creation"
 
   workflow = Workflow.create(name: "workflow", list: admin_team.lists.first, active: true, user: admin_team.users.first)
   p "Create workflow"
@@ -62,6 +63,17 @@ if Rails.env.development?
   Step.create(workflow: workflow, type: "DelayStep", delay: 3)
   Step.create(workflow: workflow, type: "SmsStep", body: "body")
   p "Create Step"
+
+  # messages creations
+
+  body = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, eligendi dignissimos. Dolore, beatae saepe, vero nihil laudantium ipsa autem sint ipsam deserunt possimus quod nisi, incidunt odit. Inventore, labore nobis!"
+  Quote.all.each do |quote|
+    EmailMessage.create(quote: quote, body: body, title: "Email title")
+    SmsMessage.create(quote: quote, body: body)
+    EmailMessage.create(quote: quote, body: body, title: "Email title")
+  end
+
+  p "Create Messages"
 
   # Initalize Sidekiq
 
