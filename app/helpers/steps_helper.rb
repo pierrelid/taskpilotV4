@@ -8,6 +8,7 @@ module StepsHelper
     when "DelayStep"
       "<i class='fas fa-hourglass-start text-warning h2'></i>".html_safe
     else
+      "<i class='fas fa-time text-danger h2'></i>".html_safe
     end
   end
 end
