@@ -1,4 +1,8 @@
-<h2><%= t(".sign_in") %></h2>
+<div class="bg-secondary">
+
+<div class="container min-vh-100-min-nav d-flex justify-content-center align-items-center">
+  <div class="card w-50 p-3">
+  <h2 class="font-weight-bold"><%= t(".sign_in") %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,8 +17,15 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, t(".sign_in") %>
+    <%= f.button :submit, t(".sign_in"), class: "btn btn-primary" %>
   </div>
 <% end %>
+    <div class="mt-2">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
 
-<%= render "devise/shared/links" %>
+
+
+</div>

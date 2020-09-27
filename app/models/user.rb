@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   include NameConcern
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :masqueradable
+  devise :database_authenticatable, :registerable, :rememberable, :masqueradable # :recoverable, :validatable
 
   belongs_to :team
   has_many :workflows, dependent: :destroy

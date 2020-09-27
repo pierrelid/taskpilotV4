@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+  <%= image_tag "logo-taskpilot-white.png", class: "navbar-brand logo" %>
+
+  <div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "<i class='fas fa-users'></i> Leads".html_safe, quotes_path, class: "nav-link active", "data-turbolinks" => "false" %>
+          
+        </li>
+        <li class="nav-item">
+          <%= link_to "<i class='fas fa-folder'></i> Listes".html_safe, lists_path, class: "nav-link", "data-turbolinks" => "false" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "<i class='fas fa-paper-plane'></i> Workflows".html_safe, workflows_path, class: "nav-link", "data-turbolinks" => "false" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
