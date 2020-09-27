@@ -1,5 +1,6 @@
-    <% if current_user.present? %>
-      <%= render "shared/navbars/navbar" %>
-    <% else %>
-      <%= render "shared/navbars/home_navbar" %>
-    <% end %>
+<% if user_signed_in? %>
+<%= render "shared/navbars/dashboard_navbar" %>
+<% else %>
+<%= render "shared/navbars/home_navbar" %>
+<% end %>
+
