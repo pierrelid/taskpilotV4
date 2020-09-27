@@ -11,4 +11,20 @@ module StepsHelper
       "<i class='fas fa-time text-danger h2'></i>".html_safe
     end
   end
+
+  def display_content(step)
+    result = ""
+    case step.type
+    when "EmailStep"
+      result += "<h5><strong>Sujet :</strong> #{step.title}</h5>"
+      result += "<p><strong>Contenu :</strong> #{step.body.truncate(200)}</p>"
+    when "SmsStep"
+      result += "<p><strong>Contenu :</strong> #{step.body.truncate(200)}</p>"
+    when "DelayStep"
+      result += "<p><strong>Delais :</strong> #{step.delay}</p>"
+    else
+      result += "No content, step type is unknow"
+    end
+    result.html_safe
+  end
 end
