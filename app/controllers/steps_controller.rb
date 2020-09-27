@@ -1,4 +1,6 @@
 class StepsController < ApplicationController
+  include StepsHelper
+
   def index
     @steps = policy_scope(Step)
     @workflow = Workflow.find(params[:workflow_id])

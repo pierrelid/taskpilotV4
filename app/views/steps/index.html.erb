@@ -1,13 +1,18 @@
-<div data-controller="drag" data-drag-url="/workflows/<%= @workflow.id %>/steps/:id/move">
-<% @steps.order(position: :asc).each do |step| %>
-    <div class="card mt-3" data-id="<%= step.id %>">
-    <%= step %> <%= step.position %> <%= link_to "Editer", edit_workflow_step_path(@workflow, step) %>
-    <%= link_to "destroy", workflow_step_path(@workflow, step), method: :delete %>
+<div class="bg-secondary">
+    <div class="container min-vh-100-min-nav">
+        <div class="py-2" data-controller="drag" data-drag-url="/workflows/<%= @workflow.id %>/steps/:id/move">
+            <% @steps.order(position: :asc).each do |step| %>
+            <div class="card p-2 mt-2" data-id="<%= step.id %>">
+            <%= display_icon(step) %> <%= step.position %> <%= link_to "Editer", edit_workflow_step_path(@workflow, step) %>
+            <%= link_to "destroy", workflow_step_path(@workflow, step), method: :delete %>
+            </div>
+            <% end %>
+            <%= link_to "Ajouter un step", new_workflow_step_path(@workflow) %>
+        </div>
     </div>
-
-<% end %>
 </div>
 
 
 
-<%= link_to "Ajouter un step", new_workflow_step_path(@workflow) %>
+
+
