@@ -22,6 +22,11 @@ fr:
       workflow: 
         name: "Nom"
         list: "Liste"
+      step: 
+        type: "Type"
+        title: "Sujet"
+        body: "Contenu"
+        delay: "Delais"
   helpers:
     submit:
       quote:

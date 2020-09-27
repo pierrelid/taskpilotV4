@@ -10,3 +10,6 @@ fr:
       qualification: 
         one: Qualification
         other: Qualification
+      step: 
+        one: Action 
+        other: Actions
