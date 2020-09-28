@@ -11,7 +11,7 @@
             input_html: { "data-action" => "change->step#kind", "data-target" => "step.kindOfStep"} 
             %>
             <%= f.input :title, wrapper_html: { "data-target" => "step.titleInput", class: "d-none" } %>
-            <%= f.input :body, wrapper_html: { "data-target" => "step.bodyInput", class: "d-none" } %>
+            <%= f.input :body, wrapper_html: { "data-target" => "step.bodyInput", class: "d-none" }, as: :trix_editor %>
             <%= f.input :delay, wrapper_html: { "data-target" => "step.delayInput", class: "d-none" } %>
             <%= f.button :submit, class: 'btn btn-primary' %>
             </div>  

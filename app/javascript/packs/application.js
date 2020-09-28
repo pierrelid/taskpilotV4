@@ -5,6 +5,9 @@ require("channels");
 
 import "bootstrap";
 
+// Trix editor
+import "trix";
+
 // DataTable
 import "datatables.net-bs4";
 import "datatables.net-responsive-bs4";
