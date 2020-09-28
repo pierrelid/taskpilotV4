@@ -7,6 +7,7 @@ class Team < ApplicationRecord
   has_many :products, dependent: :destroy
 
   has_many :qualifications, dependent: :destroy
+  has_many :landing_pages, dependent: :destroy
 
   has_many :lists, dependent: :destroy
   has_many :workflows, through: :lists
