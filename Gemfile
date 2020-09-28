@@ -44,7 +44,7 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'acts_as_list'
 gem 'font-awesome-sass', '~> 5.13.0'
 
-gem 'trix'
+gem 'trix-rails', require: 'trix'
 
 
 
