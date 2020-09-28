@@ -85,3 +85,19 @@ if Rails.env.development?
 
   p "Sidekiq initialisation"
 end
+
+if Rails.env.production?
+  require "faker"
+  Faker::Config.locale = "fr"
+
+  # Destroy all database's instances
+  Team.destroy_all
+
+  # Teams creation
+  admin_team = Team.create(name: "Admin Team")
+  p "Team admin create : #{admin_team.name}"
+
+  # Users creation
+  admin = User.create(team: admin_team, first_name: "pierre", last_name: "liduena", email: "pierre.liduena@gmail.com", password: "123456", admin: true)
+  p "Admin create : #{admin.email}"
+end
