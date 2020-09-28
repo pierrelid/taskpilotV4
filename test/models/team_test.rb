@@ -1,6 +1,11 @@
 require "test_helper"
 
 class TeamTest < ActiveSupport::TestCase
+  test "landing page creation after team creation" do
+    team = Team.create(name: "name")
+    assert team.landing_page.present?
+  end
+
   test "list creation after team creation" do
     team = Team.create(name: "name")
     names = []

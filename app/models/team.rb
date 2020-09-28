@@ -18,6 +18,11 @@ class Team < ApplicationRecord
   after_create :create_products
   after_create :create_qualifications
   after_create :create_lists
+  after_create :create_landing_page
+
+  def create_landing_page
+    LandingPage.create(team: self)
+  end
 
   def create_qualifications
     Qualification.default_names.each { |name| Qualification.create(team: self, name: name, default: true) }
