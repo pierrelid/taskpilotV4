@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :quotes
   resources :lists
 
+  resources :team, only: [] do
+    resources :landing_pages, only: [:show]
+  end
+
   resources :workflows do
     member do
       patch :switch_active

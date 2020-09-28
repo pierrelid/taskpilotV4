@@ -1,3 +1,5 @@
+<%= current_team = current_user.team %>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
   <%= image_tag "logo-taskpilot-white.png", class: "navbar-brand logo" %>
 
@@ -8,9 +10,20 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if current_team.landing_page.present? %>
+            <%= link_to "Landing Page", team_landing_page_path(current_team, current_team.landing_page) %>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog"></i> Réglages 
+        </a>
+      </li>
         <li class="nav-item">
-          <%= link_to "<i class='fas fa-users'></i> Leads".html_safe, quotes_path, class: "nav-link active", "data-turbolinks" => "false" %>
-          
+          <%= link_to "<i class='fas fa-users'></i> Leads".html_safe, quotes_path, class: "nav-link active", "data-turbolinks" => "false" %>    
         </li>
         <li class="nav-item">
           <%= link_to "<i class='fas fa-folder'></i> Listes".html_safe, lists_path, class: "nav-link", "data-turbolinks" => "false" %>
