@@ -16,6 +16,7 @@ class ListPolicy < ApplicationPolicy
   def update?
     record.team = user.team
   end
+  
 
   def destroy?
     record.team = user.team
