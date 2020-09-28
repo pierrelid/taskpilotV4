@@ -4,16 +4,18 @@
             <% @steps.order(position: :asc).each do |step| %>
                 <div data-id="<%= step.id %>">
                     <div class="card p-2 mt-2" >
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="m-0">
-                                <%= display_icon(step) %>
-                                <div class="mt-2">
-                                <%= display_content(step) %>
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="m-0">
+                                    <%= display_icon(step) %>
+                                </div>
+                                <div>
+                                    <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_workflow_step_path(@workflow, step), class: "m-0" %>
+                                    <%= link_to "<i class='fas fa-trash-alt text-muted ml-2'></i>".html_safe, workflow_step_path(@workflow, step), method: :delete, class: "m-0" %>
                                 </div>
                             </div>
-                            <div>
-                                <%= link_to "<i class='fas fa-pen-alt text-muted'></i>".html_safe, edit_workflow_step_path(@workflow, step), class: "m-0" %>
-                                <%= link_to "<i class='fas fa-trash-alt text-muted ml-2'></i>".html_safe, workflow_step_path(@workflow, step), method: :delete, class: "m-0" %>
+                            <div class="mt-2">
+                                <%= display_content(step) %>
                             </div>
                         </div>
                     </div>

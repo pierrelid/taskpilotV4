@@ -6,7 +6,7 @@ module StepsHelper
     when "SmsStep"
       "<i class='fas fa-sms text-info h2'></i>".html_safe
     when "DelayStep"
-      "<i class='fas fa-hourglass-start text-warning h2'></i>".html_safe
+      "<i class='fas fa-hourglass-start text-danger h2'></i>".html_safe
     else
       "<i class='fas fa-time text-danger h2'></i>".html_safe
     end
@@ -16,12 +16,12 @@ module StepsHelper
     result = ""
     case step.type
     when "EmailStep"
-      result += "<h5><strong>Sujet :</strong> #{step.title}</h5>"
+      result += "<p><strong>Sujet :</strong> <div>#{step.title}</div></p>"
       result += "<p><strong>Contenu :</strong> #{step.body.truncate(200)}</p>"
     when "SmsStep"
       result += "<p><strong>Contenu :</strong> #{step.body.truncate(200)}</p>"
     when "DelayStep"
-      result += "<p><strong>Delais :</strong> #{step.delay}</p>"
+      result += "<p><strong>Delais (en jours) : </strong> #{step.delay}</p>"
     else
       result += "No content, step type is unknow"
     end
