@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   belongs_to :team
   has_many :workflows, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
