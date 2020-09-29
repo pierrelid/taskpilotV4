@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :quotes
   resources :lists
 
-  resources :team, only: [] do
-    resources :landing_pages, only: [:show]
+  resources :team, only: [], param: :slug do
+    resources :landing_pages, only: [:show], param: :slug
   end
 
   resources :workflows do
