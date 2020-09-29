@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  include SlugConcern
+
   has_many :users, dependent: :destroy
 
   has_many :quotes, dependent: :destroy
@@ -19,6 +21,7 @@ class Team < ApplicationRecord
   after_create :create_qualifications
   after_create :create_lists
   after_create :create_landing_page
+  after_create :set_slug
 
   def create_landing_page
     LandingPage.create(team: self)
