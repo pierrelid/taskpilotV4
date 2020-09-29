@@ -1,7 +1,9 @@
-require 'test_helper'
+require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "invalid if start is not present" do
+    event = Event.new
+    event.valid?
+    assert_not event.errors[:start].empty?
+  end
 end
