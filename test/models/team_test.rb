@@ -1,6 +1,12 @@
 require "test_helper"
 
 class TeamTest < ActiveSupport::TestCase
+  test "must set slug before validation" do
+    team = Team.new
+    team.valid?
+    assert team.slug.present?
+  end
+
   test "landing page creation after team creation" do
     team = Team.create(name: "name")
     assert team.landing_page.present?
