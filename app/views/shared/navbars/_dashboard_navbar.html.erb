@@ -13,7 +13,7 @@
         <li class="nav-item dropdown">
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if current_team.landing_page.present? %>
-            <%= link_to "Landing Page", team_landing_page_path(current_team, current_team.landing_page), class: "dropdown-item" %>
+            <%= link_to "Landing Page", team_landing_page_path(current_team.slug, current_team.landing_page.slug), class: "dropdown-item" %>
           <% end %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>

@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  include SlugConcern
+
   has_many :users, dependent: :destroy
 
   has_many :quotes, dependent: :destroy
@@ -12,6 +14,8 @@ class Team < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :workflows, through: :lists
   has_many :active_workflows, -> { where(active: true) }, through: :lists, source: :workflow
+
+  before_validation :set_slug
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 

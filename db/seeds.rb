@@ -57,7 +57,7 @@ if Rails.env.development?
   # p "ListLine creation"
 
   workflow = Workflow.create(name: "workflow", list: admin_team.lists.first, active: true, user: admin_team.users.first)
-  p "Create workflow"
+  p "Create Workflow"
 
   Step.create(workflow: workflow, type: "EmailStep", body: "body", title: "title")
   Step.create(workflow: workflow, type: "DelayStep", delay: 3)
