@@ -4,7 +4,8 @@ module SlugConcern
   def set_slug
     loop do
       self.slug = SecureRandom.uuid
-      break unless Team.where(slug: slug).exists?
+      klass = Object.const_get self.class.name
+      break unless klass.where(slug: slug).exists?
     end
   end
 end
