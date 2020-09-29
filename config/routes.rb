@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :landing_pages, only: [:show], param: :slug
   end
 
+  resources :event
+
   resources :workflows do
     member do
       patch :switch_active
