@@ -15,13 +15,14 @@ class Team < ApplicationRecord
   has_many :workflows, through: :lists
   has_many :active_workflows, -> { where(active: true) }, through: :lists, source: :workflow
 
+  before_validation :set_slug
+
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   after_create :create_products
   after_create :create_qualifications
   after_create :create_lists
   after_create :create_landing_page
-  after_create :set_slug
 
   def create_landing_page
     LandingPage.create(team: self)
