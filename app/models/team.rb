@@ -7,6 +7,7 @@ class Team < ApplicationRecord
   has_many :products, dependent: :destroy
 
   has_many :qualifications, dependent: :destroy
+  has_one :landing_page, dependent: :destroy
 
   has_many :lists, dependent: :destroy
   has_many :workflows, through: :lists
@@ -17,6 +18,11 @@ class Team < ApplicationRecord
   after_create :create_products
   after_create :create_qualifications
   after_create :create_lists
+  after_create :create_landing_page
+
+  def create_landing_page
+    LandingPage.create(team: self)
+  end
 
   def create_qualifications
     Qualification.default_names.each { |name| Qualification.create(team: self, name: name, default: true) }

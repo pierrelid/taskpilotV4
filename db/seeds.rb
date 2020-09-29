@@ -21,12 +21,12 @@ if Rails.env.development?
   1.upto(2) do |i|
     User.create!(team: team_1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
   end
-  p " Team 1's users creation"
+  p "Team 1's users creation"
   # Team 2's users
   1.upto(2) do |i|
     User.create!(team: team_2, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email, password: "123456", admin: true)
   end
-  p " Team 2's users creation"
+  p "Team 2's users creation"
 
   # Products
   admin_team_products = admin_team.products
