@@ -2,6 +2,14 @@
     <div class="container text-center">
         <a href="">Appeler l'agence</a>
         <button class="btn btn-primary" data-action="click->event#displayEventForm">Prendre rendez-vous</button>
+        <div id="event-form">
+        <%= simple_form_for Event.new, url: new_event_url do |f| %>
+            <%= f.input :kind, collection: [["En agence", "physical"],["Téléphonique", "call"]], as: :radio_buttons, label_method: :first, value_method: :second %>
+            <%= f.input :start %>
+            <%= f.input :end %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+        </div>
     </div>
 </div>
 
