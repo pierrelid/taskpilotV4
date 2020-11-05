@@ -23,3 +23,9 @@ application.load(definitionsFromContext(context));
 
 // functions
 dataTable();
+
+import { pickadate } from "pikadate";
+
+const element = document.getElementById("pickadate");
+const picker = pickadate.create();
+pickadate.render(element, picker);
