@@ -1,0 +1,16 @@
+.date-items{
+    color: $light;
+    display: inline-block;
+    background-color: $dark;
+    width: 30%;
+    padding: 0.5rem; 
+    font-weight: 700;
+    margin: 0.25rem; 
+    border-radius: 5px;
+    transition: background-color 0.25s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: $primary;
+    }
+}
+
