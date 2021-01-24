@@ -2,8 +2,10 @@
     <div>
     <h4 class="font-weight-bold my-3">Quel jour vous convient le mieux ?</h4>
         <div>
-        <% @dates.each do |date| %>
-          <span class="date-items"><%= date.strftime("%a %d %b") %></span>
+        <% @dates.each_with_index do |date, index| %>
+        <span data-controller="radio-selector">
+            <span id="date_<%= index %>" data-target="radio-selector.option" class="date-items" data-action="click->radio-selector#selectRadioOption"><%= date.strftime("%a %d %b") %></span>
+        </span>
         <% end %>
         </div>
         <div class="mt-4 mb-3">
