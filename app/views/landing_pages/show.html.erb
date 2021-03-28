@@ -4,7 +4,7 @@
         <div>
         <% @dates.each_with_index do |date, index| %>
         <span data-controller="radio-selector">
-            <span id="date_<%= index %>" data-target="radio-selector.option" class="date-items" data-action="click->radio-selector#selectRadioOption"><%= date.strftime("%a %d %b") %></span>
+            <span index="<%= index %>" id="date_<%= index %>" data-target="radio-selector.option" class="radio-choice date-item" data-action="click->radio-selector#selectRadioOption"><%= date.strftime("%a %d %b") %></span>
         </span>
         <% end %>
         </div>
@@ -14,7 +14,7 @@
         </div>
         <div>
         <% @hours.each do |hour| %>
-          <span class="date-items"><%= hour %></span>
+          <span class="date-item"><%= hour %></span>
         <% end %>
         </div>
         <div class="mt-3">

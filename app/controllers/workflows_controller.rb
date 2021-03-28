@@ -15,6 +15,7 @@ class WorkflowsController < ApplicationController
 
   def create
     @workflow = Workflow.new(workflow_params)
+    @workflow.user = current_user
     authorize @workflow
     @workflow.save ? redirect_to(workflow_path(@workflow)) : render(:new)
   end

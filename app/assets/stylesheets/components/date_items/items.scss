@@ -1,4 +1,4 @@
-.date-items{
+.date-item{
     color: $light;
     display: inline-block;
     background-color: $dark;
@@ -15,7 +15,7 @@
 
 }
 
-// .active{
-//     background-color: $primary !important;
-// }
+.active{
+    background-color: $primary !important;
+}
 
