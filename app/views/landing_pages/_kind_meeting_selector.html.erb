@@ -1,2 +1,8 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque molestiae commodi, accusamus rerum illo necessitatibus, a tempora voluptatem voluptatum esse autem sequi eos dicta labore iste suscipit voluptatibus. Debitis, animi.
+<span data-controller="radio-selector">
+    <span index="<%= 0 %>" id="kind_<%= 0 %>" data-target="radio-selector.option" class="radio-choice meeting-item" data-action="click->radio-selector#selectRadioOption">Rendez-vous téléphonique</span>
+</span>
+<span data-controller="radio-selector">
+    <span index="<%= 1 %>" id="kind_<%= 1 %>" data-target="radio-selector.option" class="radio-choice meeting-item" data-action="click->radio-selector#selectRadioOption">Rendez-vous en agence</span>
+</span>
+
 <div position="<%= position %>" data-action="click->multi-steps-form#next" class="btn btn-primary">NEXT</div>
