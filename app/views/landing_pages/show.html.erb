@@ -1,5 +1,5 @@
 <div data-controller="multi-steps-form" class="container vh-100 w-25 d-flex justify-content-center align-items-center text-center">
-    <div step="0" data-target="multi-steps-form.firstStep" class="step"><%= render "kind_meeting_selector", position: 0 %></div>
+    <div step="0" data-target="multi-steps-form.firstStep" data-action="click->multi-steps-form#firstStepValidations" class="step"><%= render "kind_meeting_selector", position: 0 %></div>
     <div step="1" data-target="multi-steps-form.secondStep" class="step d-none"><%= render "date_selector", position: 1 %></div>
 </div>
 

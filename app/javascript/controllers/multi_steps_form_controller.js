@@ -1,7 +1,20 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["firstStep", "secondStep", "currentStep"];
+  static targets = [
+    "firstStep",
+    "secondStep",
+    "currentStep",
+    "firstNextButton",
+  ];
+
+  firstStepValidations(event) {
+    const firstStep = this.firstStepTarget;
+    const choices = firstStep.getElementsByClassName("active");
+    if (choices.length > 0) {
+      this.firstNextButtonTarget.classList.remove("d-none");
+    }
+  }
 
   next(event) {
     const currentTarget = event.currentTarget;
