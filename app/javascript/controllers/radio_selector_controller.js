@@ -9,7 +9,7 @@ export default class extends Controller {
     const choiceIndex = choice.getAttribute("index");
     const choicesWrapper = choice.parentNode.parentNode;
     const choices = choicesWrapper.getElementsByClassName("radio-choice");
-    for (let index = 0; index < choices.length - 1; index++) {
+    for (let index = 0; index < choices.length; index++) {
       if (index != choiceIndex) {
         choices[index].classList.remove("active");
       }
