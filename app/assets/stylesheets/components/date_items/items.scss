@@ -1,0 +1,38 @@
+.date-item{
+    color: $light;
+    display: inline-block;
+    background-color: $dark;
+    width: 30%;
+    padding: 0.5rem; 
+    font-weight: 700;
+    margin: 0.25rem; 
+    border-radius: 5px;
+    transition: background-color 0.25s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: $primary;
+    }
+
+}
+
+.meeting-item{
+    color: $light;
+    display: inline-block;
+    background-color: $dark;
+    width: 100%;
+    padding: 1.5rem 0.5rem; 
+    font-weight: 700;
+    margin: 0.5rem; 
+    border-radius: 5px;
+    transition: background-color 0.25s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: $primary;
+    }
+
+}
+
+.active{
+    background-color: $primary !important;
+}
+

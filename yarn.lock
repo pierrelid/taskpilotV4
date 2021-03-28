@@ -6448,13 +6448,6 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-pickadate@3.6.4:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/pickadate/-/pickadate-3.6.4.tgz#3ec4df80643166888d4c8656bffefe7bd53cdbae"
-  integrity sha512-2QN4aAXJJu1BN6L6ZzFd/rOWu9fzAPwNE9PpNX19YccuOu0c+0rMzO3sl72mNrfTmzR2jcLtvLUtw3PoWvhBrQ==
-  dependencies:
-    jquery ">=1.7"
-
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
