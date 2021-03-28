@@ -13,8 +13,10 @@
             <p>Durée de 30 min</p>
         </div>
         <div>
-        <% @hours.each do |hour| %>
-          <span class="date-item"><%= hour %></span>
+        <% @hours.each_with_index do |hour, index| %>
+        <span data-controller="radio-selector">
+          <span index="<%= index %>" index="<%= index %>" id="hout_<%= index %>" data-target="radio-selector.option" class="radio-choice date-item" data-action="click->radio-selector#selectRadioOption"><%= hour %></span>
+        </span>
         <% end %>
         </div>
         <div class="mt-3">
