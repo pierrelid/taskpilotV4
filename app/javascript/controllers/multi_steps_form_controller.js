@@ -6,6 +6,7 @@ export default class extends Controller {
     "secondStep",
     "currentStep",
     "firstNextButton",
+    "secondNextButton",
   ];
 
   firstStepValidations(event) {
@@ -13,6 +14,15 @@ export default class extends Controller {
     const choices = firstStep.getElementsByClassName("active");
     if (choices.length > 0) {
       this.firstNextButtonTarget.classList.remove("d-none");
+    }
+  }
+
+  secondStepValidations(event) {
+    const secondStep = this.secondStepTarget;
+    const choices = secondStep.getElementsByClassName("active");
+    console.log(choices.length);
+    if (choices.length > 1) {
+      this.secondNextButtonTarget.classList.remove("d-none");
     }
   }
 
